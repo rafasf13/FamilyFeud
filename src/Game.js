@@ -265,6 +265,132 @@ const questions = [
       },
     ],
   },
+  {
+    question: "¿Cómo perciben los padres el cambio a la adolescencia?",
+    answers: [
+      { displayAnswer: "Tranquila", typeAnswers: ["tranquila"], points: 54 },
+      { displayAnswer: "Difícil", typeAnswers: ["dificil"], points: 46 },
+    ],
+  },
+  {
+    question: "¿Qué cosas se interponen en tu relación con tus hijos?",
+    answers: [
+      {
+        displayAnswer: "Diferencia de opinión y autoridad",
+        typeAnswers: ["opinion"],
+        points: 46,
+      },
+      {
+        displayAnswer: "Comunicación",
+        typeAnswers: ["comunicacion"],
+        points: 15,
+      },
+      { displayAnswer: "Tecnología ", typeAnswers: ["tecnologia"], points: 15 },
+      { displayAnswer: "Amistades", typeAnswers: ["amistades"], points: 15 },
+      { displayAnswer: "Diferencia de edad", typeAnswers: ["edad"], points: 9 },
+    ],
+  },
+  {
+    question:
+      "¿Cuáles de los siguientes son problemas que ha enfrentado tu hijo? Podés marcar todos los que apliquen.",
+    answers: [
+      { displayAnswer: "Depresión", typeAnswers: ["depresion"], points: 20 },
+      {
+        displayAnswer: "Uso del internet / contacto con extraños",
+        typeAnswers: ["internet"],
+        points: 20,
+      },
+      { displayAnswer: "Bullying", typeAnswers: ["bullying"], points: 12 },
+      {
+        displayAnswer: "Desordenes alimenticios",
+        typeAnswers: ["alimenticios"],
+        points: 12,
+      },
+      {
+        displayAnswer: "Embarazo / conducta sexual",
+        typeAnswers: ["sexo"],
+        points: 8,
+      },
+      {
+        displayAnswer: "Intentos de suicidio",
+        typeAnswers: ["suicidio"],
+        points: 8,
+      },
+      { displayAnswer: "Auto lesiones", typeAnswers: ["lesiones"], points: 8 },
+      {
+        displayAnswer: "Relaciones abusivas / indebidas",
+        typeAnswers: ["abuso"],
+        points: 4,
+      },
+      { displayAnswer: "Alcohol / fumado", typeAnswers: ["drogas"], points: 4 },
+      {
+        displayAnswer: "Ninguno de los mencionados ",
+        typeAnswers: ["ninguno"],
+        points: 4,
+      },
+    ],
+  },
+  {
+    question:
+      "¿Cómo solucionás con tus adolescentes cuando tienen un desacuerdo?",
+    answers: [
+      {
+        displayAnswer: "Conversando",
+        typeAnswers: ["conversando"],
+        points: 76,
+      },
+      {
+        displayAnswer: "Consecuencias ",
+        typeAnswers: ["consecuencias"],
+        points: 16,
+      },
+      { displayAnswer: "Regaños", typeAnswers: ["regano"], points: 8 },
+    ],
+  },
+  {
+    question:
+      "¿A quién acudís vos cuando tenés algún desacuerdo con tus hijos? ¿Tenés alguien con quién hablar?",
+    answers: [
+      {
+        displayAnswer: "Personas de confianza",
+        typeAnswers: ["confianza"],
+        points: 33,
+      },
+      { displayAnswer: "Pareja", typeAnswers: ["pareja"], points: 29 },
+      { displayAnswer: "Psicóloga", typeAnswers: ["psicologa"], points: 14 },
+      {
+        displayAnswer: "Líder espíritual / Dios",
+        typeAnswers: ["dios"],
+        points: 14,
+      },
+      { displayAnswer: "Maestros", typeAnswers: ["maestros"], points: 5 },
+      { displayAnswer: "Nadie", typeAnswers: ["nadie"], points: 5 },
+    ],
+  },
+  {
+    question: "¿Te gustaría participar de un taller para padres?",
+    answers: [
+      { displayAnswer: "Sí", typeAnswers: ["si"], points: 70 },
+      {
+        displayAnswer: "Posiblemente ",
+        typeAnswers: ["meh"],
+        points: 15,
+      },
+      { displayAnswer: "No", typeAnswers: ["no"], points: 15 },
+    ],
+  },
+  {
+    question: "¿Aprendiste algo con esto?",
+    answers: [
+      { displayAnswer: "Sí", typeAnswers: ["si"], points: 100 },
+      {
+        displayAnswer: "Obvio ",
+        typeAnswers: ["obvio"],
+        points: 100,
+      },
+      { displayAnswer: "Claro", typeAnswers: ["claro"], points: 100 },
+    ],
+  },
 ];
 
 function Game() {
@@ -301,7 +427,9 @@ function Game() {
         onAnswer={handleAnswer}
         correctAnswers={correctAnswers}
       />
-      <button onClick={nextQuestion}>Siguiente Pregunta</button>
+      {currentQuestionIndex < questions.length - 1 && (
+        <button onClick={nextQuestion}>Siguiente Pregunta</button>
+      )}
     </div>
   );
 }
