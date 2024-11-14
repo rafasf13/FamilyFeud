@@ -428,7 +428,12 @@ function Game() {
         correctAnswers={correctAnswers}
       />
       {currentQuestionIndex < questions.length - 1 && (
-        <button onClick={nextQuestion}>Siguiente Pregunta</button>
+        <button
+          onClick={nextQuestion}
+          disabled={score / (currentQuestionIndex + 1) != 100}
+        >
+          Siguiente Pregunta
+        </button>
       )}
     </div>
   );
